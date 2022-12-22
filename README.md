@@ -16,10 +16,13 @@ A simple timer application built using PyQt6.
 ## Installation
 
 1. Clone the repository:
-- git clone https://github.com/Moultree/Timer
+```
+git clone https://github.com/Moultree/Timer
+```
 2. Run the application:
-- python main.py
-
+```
+python main.py
+```
 ## Example 
 ![image](https://user-images.githubusercontent.com/86831845/209190486-b823edf3-8303-42a6-9960-200e45757fb7.png)
 
