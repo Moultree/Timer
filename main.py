@@ -20,9 +20,9 @@ class Window(QMainWindow):
     ) -> None:
         super().__init__()
 
-        width = 436
-        height = 277
-        self.setGeometry(0, 0, width, height)
+        self.width = 436
+        self.height = 277
+        self.setGeometry(0, 0, self.width, self.height)
         self.setup_ui()
 
         self.alarm_filename = "resources/alarm.mp3"
@@ -42,11 +42,13 @@ class Window(QMainWindow):
         self.timer_is_started = False
 
     def setup_ui(self):
-        self.setWindowFlags(QtCore.Qt.WindowType.FramelessWindowHint)
+        self.setWindowFlags(QtCore.Qt.WindowType.CustomizeWindowHint)
+        self.setFixedSize(self.width, self.height)
+        self.setStyleSheet("background-color: #2f2f2f;")
+        self.setProperty("_q_windowsizegrip", False)
+        self.setProperty("_q_wndradius", 10)
+
         self.center()
-        self.setStyleSheet(
-            "background-color: #2f2f2f;" "border-radius: 100px;"
-        )
 
         self.onlyInt = QtGui.QIntValidator()
         self.onlyInt.setRange(0, 99)
@@ -167,6 +169,7 @@ class Window(QMainWindow):
         self.seconds_button.editingFinished.connect(
             self.seconds_on_editing_finished
         )
+
 
     def start(self):
         if self.timer_is_started:
